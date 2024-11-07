@@ -141,7 +141,14 @@ else:
     
 # st.write(staralt_url)
 
+st.write(
+        f'<iframe width="850px" height="680px" src="{staralt_url}"></iframe>'
+        '<iframe width="1400" height="900" src="http://weather.gmg.org.cn:9000">',
+        unsafe_allow_html=True,
+    )
+
 st.write(f"""{source_name}
+
 T0 at {T0}
 
 Localization (J2000):
