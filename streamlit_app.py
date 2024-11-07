@@ -53,18 +53,18 @@ raJ2000 = coords.ra.to_string(u.hourangle,pad=True,sep=' ',precision=2)
 decJ2000 = coords.dec.to_string(u.deg,pad=True,alwayssign=True,sep=' ',precision=1)
 coordsJ2000 = f'{raJ2000} {decJ2000}'
 
-st.write(f"""{source_name}
+# st.write(f"""{source_name}
          
-T0 at {T0}
+# T0 at {T0}
 
-Localization (J2000):
+# Localization (J2000):
 
-RA  =  {raJ2000}
+# RA  =  {raJ2000}
 
-DEC = {decJ2000}
+# DEC = {decJ2000}
 
-Err = {Err} {unit}
-""")
+# Err = {Err} {unit}
+# """)
 
 from bs4 import BeautifulSoup
 params = {
@@ -95,7 +95,7 @@ pre_tag = soup.find('pre')
 # 获取 <pre> 标签中的文本内容
 if pre_tag:
     absorption = pre_tag.get_text()
-    st.write(absorption)
+    # st.write(absorption)
 else:
     st.write("No <pre> tag found.")
 
@@ -103,7 +103,7 @@ else:
 url = """https://aladin.cds.unistra.fr/AladinLite/?fov=0.10&survey=CDS/P/PanSTARRS/DR1/color-z-zg-g&overlays=[{ "type": "graphic", "name": "uncertainty", "color": "red", "lineWidth": 4, "items": [ { "type": "circle", "ra": %s, "dec": %s, "radius": %s } ]}]&target=%s"""%(raDeg,decDeg,Err_deg,coordsJ2000)
 
 encoded_url = urllib.parse.quote(url, safe=":/?=&")
-st.write(encoded_url)
+# st.write(encoded_url)
 
 # Get the current UTC time
 current_utc_time = datetime.now(timezone.utc)
@@ -139,9 +139,9 @@ if response.status_code == 200:
 else:
     print(f"Failed to retrieve the image. Status code: {response.status_code}")
     
-st.write(staralt_url)
+# st.write(staralt_url)
 
-print(f"""{source_name}
+st.write(f"""{source_name}
 T0 at {T0}
 
 Localization (J2000):
@@ -152,7 +152,7 @@ DEC = {decJ2000}
 
 Err = {Err} {unit}
 
-Galactic l, b = ({lDeg:.1f}, {bDeg:.1f})
+Galactic l, b = ({lDeg:.1f}, {bDeg:.1f}) deg
 
 {absorption}
 
@@ -241,7 +241,7 @@ for i, row in info.iterrows():
     info.loc[i,'mag_fmt'] = f"{row['mag']} ± {row['mag_err']}"
 info
 
-st.write(info)
+# st.write(info)
 
 
 rsp = req.get(url='https://irsa.ipac.caltech.edu/cgi-bin/DUST/nph-dust', 
