@@ -1,7 +1,7 @@
 streamlit
 
-smplotlib
-matplotlib
+# smplotlib
+# matplotlib
 astropy
-beautifulsoup4
-tabulate
+# beautifulsoup4
+# tabulate
